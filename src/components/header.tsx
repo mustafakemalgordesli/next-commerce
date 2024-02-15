@@ -1,12 +1,11 @@
 import { ShoppingOutlined, UserOutlined } from "@ant-design/icons"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import AccountDropdown from "@/components/account-dropdown"
 import { Input } from "@/components/ui/input"
 import AccountNavigation from "@/components/account-navigation"
 
 export default function Header() {
-    return <header className="fixed top-0 h-16 border-b w-full">
+    return <header className="fixed top-0 h-16 border-b w-full bg-white">
         <div className="w-full h-full flex items-center justify-between max-w-screen-xl mx-auto px-2 lg:px-0">
             <div className="w-[200px]">
                 <Link href="/"><span className="text-xl sm:text-2xl font-semibold">NextCommerce</span></Link>
