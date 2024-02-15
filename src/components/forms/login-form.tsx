@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "../ui/button"
 import Link from "next/link"
+import { GoogleOutlined } from "@ant-design/icons"
 
 export default function LoginForm() {
     return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg">
@@ -18,7 +19,7 @@ export default function LoginForm() {
                 <Label htmlFor="password">Password</Label>
                 <Input type="password" name="password" id="password" placeholder="Password" />
             </div>
-            <div className="grid w-full grid-flow-col py-2">
+            <div className="grid w-full grid-flow-col py-1">
                 <div className="flex items-center space-x-2">
                     <Checkbox id="terms" />
                     <label
@@ -36,11 +37,14 @@ export default function LoginForm() {
             </div>
         </div>
         <Button className="w-full">Log In</Button>
-        <div className="w-full pt-4  flex items-center">
+        <div className="w-full py-2  flex items-center">
             <span className="text-gray-400">Don&apos;t have an account yet?</span>
             <Link href="/signup" className="flex justify-end">
                 <Button variant="ghost" className="underline hover:bg-transparent p-1">Sign Up</Button>
             </Link>
         </div>
+        <Button className="w-full">
+            <GoogleOutlined className="mr-1 h-4 w-4" /> Log in with Google
+        </Button>
     </form>
 }
