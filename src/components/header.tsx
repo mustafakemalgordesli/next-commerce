@@ -25,7 +25,7 @@ export default function Header() {
                 <AccountNavigation />
 
                 <Link href="/cart">
-                    <Button variant="ghost" className="flex w-full h-full gap-1 text-base p-1 py-2 mx-2 sm:mx-0 sm:py-1 sm:px-4">
+                    <Button variant="ghost" className="flex w-full h-full gap-1 text-base p-1 py-2 mx-2 sm:mx-0 sm:py-1.5 sm:px-4">
                         {/* <div className="w-4 h-4 flex items-center justify-center bg-red-500 text-white text-xs rounded-full">1</div> */}
                         <ShoppingOutlined style={{ fontSize: "16px" }} /><span className="hidden sm:inline-block text-base">Cart</span>
                     </Button>

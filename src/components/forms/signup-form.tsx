@@ -28,6 +28,9 @@ export default function SignupForm() {
             <div className="grid w-full max-w-md items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input type="email" name="email" id="email" placeholder="Email" />
+                {state.email && (
+                    <p className="text-xs font-medium text-red-600">{state.email}</p>
+                )}
             </div>
             <div className="grid w-full max-w-md items-center gap-1.5">
                 <Label htmlFor="password">Password</Label>
@@ -39,6 +42,9 @@ export default function SignupForm() {
                         }
                     </Button>
                 </div>
+                {state.password && (
+                    <p className="text-xs font-medium text-red-600">{state.password}</p>
+                )}
             </div>
         </div>
         <SubmitButton>Sign Up</SubmitButton>
