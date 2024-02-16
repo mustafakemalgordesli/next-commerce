@@ -33,9 +33,9 @@ export default function SignupForm() {
                 <Label htmlFor="password">Password</Label>
                 <div className="relative flex items-center">
                     <Input type={passwordShow ? "text" : "password"} name="password" id="password" placeholder="Password" />
-                    <Button type="button" onClick={() => SetPasswordShow(s => !s)} variant="ghost" className="absolute right-1 p-1 px-1.5">
+                    <Button type="button" onClick={() => SetPasswordShow(s => !s)} variant="ghost" className="absolute right-1 p-1 px-1.5 hover:bg-transparent">
                         {
-                            !passwordShow ? <EyeOpenIcon className="h-5 w-5" /> : <EyeNoneIcon className="h-5 w-5" />
+                            !passwordShow ? <EyeOpenIcon className="h-5 w-5 bg-transparent" /> : <EyeNoneIcon className="h-5 w-5 bg-transparent fill-current" />
                         }
                     </Button>
                 </div>
