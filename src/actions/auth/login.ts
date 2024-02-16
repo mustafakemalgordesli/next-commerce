@@ -49,7 +49,7 @@ export async function LogInAction(prevState: any, formData: FormData) {
 
         user.password = '';
 
-        const token = await createJwtToken({ email: user.email });
+        const token = await createJwtToken({ id: user.id, email: user.email });
 
         const cookieStore = cookies();
 

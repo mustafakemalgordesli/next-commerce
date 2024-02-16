@@ -53,7 +53,10 @@ export async function SignUpAction(prevState: any, formData: FormData) {
             },
         });
 
-        const token = await createJwtToken({ email: savedUser.email });
+        const token = await createJwtToken({
+            id: savedUser.id,
+            email: savedUser.email,
+        });
 
         const cookieStore = cookies();
 
