@@ -22,7 +22,7 @@ export default function SignupForm() {
 
     const [passwordShow, SetPasswordShow] = useState(false)
 
-    return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg" encType="multipart/form-data" action={formAction} method="POST">
+    return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg" action={formAction}>
         <div className="text-xl font-semibold pb-4">Sign up with email</div>
         <div className="py-2 grid grid-flow-row gap-4">
             <div className="grid w-full max-w-md items-center gap-1.5">

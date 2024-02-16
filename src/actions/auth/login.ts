@@ -19,7 +19,7 @@ const createSchema = z.object({
 import { createJwtToken } from '@/lib/utils';
 import { redirect } from 'next/navigation';
 
-export async function SignUpAction(prevState: any, formData: FormData) {
+export async function LogInAction(prevState: any, formData: FormData) {
     try {
         const isValidData = createSchema.parse({
             email: formData.get('email'),
@@ -32,28 +32,24 @@ export async function SignUpAction(prevState: any, formData: FormData) {
             },
         });
 
-        if (user)
+        if (!user)
             return {
-                email: 'This email address already exists',
+                email: 'User not found',
                 password: '',
             };
 
-        const hash = await bcrypt.hash(isValidData.password, 10);
+        const match = await bcrypt.compare(isValidData.password, user.password);
 
-        const savedUser = await prisma.user.create({
-            data: {
-                email: isValidData.email,
-                password: hash,
-            },
-            select: {
-                email: true,
-                id: true,
-                firstname: true,
-                lastname: true,
-            },
-        });
+        if (!match) {
+            return {
+                email: '',
+                password: 'Password is wrong',
+            };
+        }
 
-        const token = await createJwtToken({ email: savedUser.email });
+        user.password = '';
+
+        const token = await createJwtToken({ email: user.email });
 
         const cookieStore = cookies();
 
