@@ -24,15 +24,15 @@ export default function SignupForm() {
 
     return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg" action={formAction}>
         <div className="text-xl font-semibold pb-4">Sign up with email</div>
-        <div className="py-2 grid grid-flow-row gap-4">
-            <div className="grid w-full max-w-md items-center gap-1.5">
+        <div className="py-3 grid grid-flow-row gap-4">
+            <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input type="email" name="email" id="email" placeholder="Email" />
                 {state.email && (
                     <p className="text-xs font-medium text-red-600">{state.email}</p>
                 )}
             </div>
-            <div className="grid w-full max-w-md items-center gap-1.5">
+            <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="password">Password</Label>
                 <div className="relative flex items-center">
                     <Input type={passwordShow ? "text" : "password"} name="password" id="password" placeholder="Password" />
@@ -50,8 +50,8 @@ export default function SignupForm() {
         <SubmitButton>Sign Up</SubmitButton>
         <div className="w-full py-2  flex items-center">
             <span className="text-gray-400">Already have an account?</span>
-            <Link href="/login" className="flex justify-end">
-                <Button variant="ghost" className="underline hover:bg-transparent p-1">Log In</Button>
+            <Link href="/login" className="flex justify-end underline hover:bg-transparent py-1 px-1">
+                Log In
             </Link>
         </div>
         <Button className="w-full">

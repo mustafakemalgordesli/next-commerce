@@ -25,17 +25,17 @@ export default function LoginForm() {
     return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg" action={formAction}>
         <div className="text-xl font-semibold pb-4">Sign in to your account</div>
         <div className="py-2 grid grid-flow-row gap-4">
-            <div className="grid w-full max-w-md items-center gap-1.5">
+            <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="email">Email</Label>
                 <Input type="email" name="email" id="email" placeholder="Email" />
                 {state.email && (
                     <p className="text-xs font-medium text-red-600">{state.email}</p>
                 )}
             </div>
-            <div className="grid w-full max-w-md items-center gap-1.5">
+            <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="password">Password</Label>
                 <div className="relative flex items-center">
-                    <Input type={passwordShow ? "text" : "password"} name="password" id="password" placeholder="Password" />
+                    <Input type={passwordShow ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full" />
                     <Button type="button" onClick={() => SetPasswordShow(s => !s)} variant="ghost" className="absolute right-1 p-1 px-1.5 hover:bg-transparent">
                         {
                             !passwordShow ? <EyeOpenIcon className="h-5 w-5 bg-transparent" /> : <EyeNoneIcon className="h-5 w-5 bg-transparent fill-current" />
@@ -58,7 +58,7 @@ export default function LoginForm() {
                 </div>
 
                 <Link href="/forgotpassword" className="flex justify-end">
-                    <Button variant="ghost" className="underline hover:bg-transparent p-0">Forgot password?</Button>
+                    <Label className="underline hover:bg-transparent p-0 py-3">Forgot password?</Label>
                 </Link>
 
             </div>

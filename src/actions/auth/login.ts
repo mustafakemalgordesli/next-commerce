@@ -5,7 +5,7 @@ import prisma from '@/lib/prisma';
 import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 
-const EXP_TIME = 30 * 60 * 60 * 1000;
+const EXP_TIME = 24 * 60 * 60 * 30;
 
 const createSchema = z.object({
     password: z
