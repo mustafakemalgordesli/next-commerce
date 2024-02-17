@@ -13,10 +13,10 @@ import { SubmitButton } from "../submit-button"
 
 const initialState: { email: string, password: string } = {
     email: "",
-    password: ""
+    password: "",
 }
 
-export default function LoginForm() {
+export default function LoginForm({ next }: { next: string }) {
     const [state, formAction] = useFormState(LogInAction, initialState)
 
     const [passwordShow, SetPasswordShow] = useState(false)
@@ -70,6 +70,7 @@ export default function LoginForm() {
 
             </div> */}
         </div>
+        <input type="hidden" value={next} name="next" />
         <SubmitButton>Log In</SubmitButton>
         <div className="w-full py-2  flex items-center">
             <span className="text-gray-400">Don&apos;t have an account yet?</span>

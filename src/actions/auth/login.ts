@@ -68,5 +68,6 @@ export async function LogInAction(prevState: any, formData: FormData) {
         };
     }
 
-    redirect('/');
+    const nextUrl = formData.get('next') as string;
+    redirect(nextUrl ? nextUrl : '/');
 }
