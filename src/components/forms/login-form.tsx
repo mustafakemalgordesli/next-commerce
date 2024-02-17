@@ -33,7 +33,15 @@ export default function LoginForm() {
                 )}
             </div>
             <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="password">Password</Label>
+
+                <div className="grid w-full grid-flow-col items-center">
+                    <Label>Password</Label>
+
+                    <Link href="/forgotpassword" className="flex justify-end underline text-sm font-semibold">
+                        Forgot password?
+                    </Link>
+
+                </div>
                 <div className="relative flex items-center">
                     <Input type={passwordShow ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full" />
                     <Button type="button" onClick={() => SetPasswordShow(s => !s)} variant="ghost" className="absolute right-1 p-1 px-1.5 hover:bg-transparent">
@@ -46,7 +54,7 @@ export default function LoginForm() {
                     <p className="text-xs font-medium text-red-600">{state.email}</p>
                 )}
             </div>
-            <div className="grid w-full grid-flow-col py-1">
+            {/* <div className="grid w-full grid-flow-col py-1">
                 <div className="flex items-center space-x-2">
                     <Checkbox id="terms" name="terms" />
                     <label
@@ -61,7 +69,7 @@ export default function LoginForm() {
                     <Label className="underline hover:bg-transparent p-0 py-3">Forgot password?</Label>
                 </Link>
 
-            </div>
+            </div> */}
         </div>
         <SubmitButton>Log In</SubmitButton>
         <div className="w-full py-2  flex items-center">

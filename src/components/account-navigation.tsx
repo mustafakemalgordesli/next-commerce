@@ -9,11 +9,10 @@ import {
     NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuLink,
-    NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
+import { LogoutOutlined } from "@ant-design/icons"
 
 interface UserPayload {
     id: Number,
@@ -27,27 +26,55 @@ export default function AccountNavigation({ user }: { user: UserPayload | null }
                 <NavigationMenuTrigger className="list-none text-base gap-0.5 hidden sm:inline-flex"><UserOutlined style={{ fontSize: "16px" }} />{user ? "Account" : "Log In"}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                     <ul className="grid gap-3 p-4 md:w-32 lg:w-36 list-none">
-                        <li className="row-span-3 w-full">
-                            <NavigationMenuLink asChild>
-                                <Link href="/login" className="w-full">
-                                    <Button className="w-full">
-                                        Log In
-                                    </Button>
-                                </Link>
-                            </NavigationMenuLink>
-                        </li>
-                        <li className="row-span-3 w-full">
-                            <NavigationMenuLink asChild>
-                                <Link href="/signup" className="w-full">
-                                    <Button variant="outline" className="w-full">
-                                        Sign Up
-                                    </Button>
-                                </Link>
-                            </NavigationMenuLink>
-                        </li>
+                        {
+                            user
+                                ?
+                                <LoggedIn />
+                                :
+                                <NotLoggedIn />
+                        }
                     </ul>
                 </NavigationMenuContent>
             </NavigationMenuItem>
         </NavigationMenu>
+    )
+}
+
+const NotLoggedIn = () => {
+    return (
+        <>
+            <li className="row-span-3 w-full">
+                <NavigationMenuLink asChild>
+                    <Link href="/login" className="w-full">
+                        <Button className="w-full">
+                            Log In
+                        </Button>
+                    </Link>
+                </NavigationMenuLink>
+            </li>
+            <li className="row-span-3 w-full">
+                <NavigationMenuLink asChild>
+                    <Link href="/signup" className="w-full">
+                        <Button variant="outline" className="w-full">
+                            Sign Up
+                        </Button>
+                    </Link>
+                </NavigationMenuLink>
+            </li>
+        </>
+    )
+}
+
+const LoggedIn = () => {
+    return (
+        <>
+            <li className="row-span-3 w-full">
+                <NavigationMenuLink asChild>
+                    <Button variant="outline" className="w-full flex flex-row items-center justify-center gap-0.5">
+                        <LogoutOutlined />Log out
+                    </Button>
+                </NavigationMenuLink>
+            </li>
+        </>
     )
 }

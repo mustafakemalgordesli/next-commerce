@@ -7,7 +7,7 @@ import { cookies } from 'next/headers';
 
 const EXP_TIME = 24 * 60 * 60 * 30;
 
-const createSchema = z.object({
+const loginSchema = z.object({
     password: z
         .string({ invalid_type_error: 'Passoword is required' })
         .min(6, { message: 'Passoword is required' }),
@@ -21,7 +21,7 @@ import { redirect } from 'next/navigation';
 
 export async function LogInAction(prevState: any, formData: FormData) {
     try {
-        const isValidData = createSchema.parse({
+        const isValidData = loginSchema.parse({
             email: formData.get('email'),
             password: formData.get('password'),
         });
