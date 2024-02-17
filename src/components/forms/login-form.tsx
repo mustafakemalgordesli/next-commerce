@@ -2,7 +2,6 @@
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { GoogleOutlined } from "@ant-design/icons"
@@ -50,8 +49,8 @@ export default function LoginForm() {
                         }
                     </Button>
                 </div>
-                {state.email && (
-                    <p className="text-xs font-medium text-red-600">{state.email}</p>
+                {state.password && (
+                    <p className="text-xs font-medium text-red-600">{state.password}</p>
                 )}
             </div>
             {/* <div className="grid w-full grid-flow-col py-1">

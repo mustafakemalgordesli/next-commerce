@@ -9,8 +9,8 @@ const EXP_TIME = 24 * 60 * 60 * 30;
 
 const createSchema = z.object({
     password: z
-        .string({ invalid_type_error: 'Passoword is required' })
-        .min(6, { message: 'Passoword is required' }),
+        .string({ invalid_type_error: 'Password is required' })
+        .min(6, { message: 'Password is required' }),
     email: z
         .string({ invalid_type_error: 'Email is required' })
         .email('This is not a valid email.'),

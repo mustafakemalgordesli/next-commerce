@@ -12,7 +12,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
-import { LogoutOutlined } from "@ant-design/icons"
+import LogoutButton from "./logout-button"
 
 interface UserPayload {
     id: Number,
@@ -65,14 +65,13 @@ const NotLoggedIn = () => {
     )
 }
 
+import { LogOutAction } from "@/actions/auth/logout"
 const LoggedIn = () => {
     return (
         <>
             <li className="row-span-3 w-full">
                 <NavigationMenuLink asChild>
-                    <Button variant="outline" className="w-full flex flex-row items-center justify-center gap-0.5">
-                        <LogoutOutlined />Log out
-                    </Button>
+                    <LogoutButton logoutaction={LogOutAction} />
                 </NavigationMenuLink>
             </li>
         </>

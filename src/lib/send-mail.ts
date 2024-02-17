@@ -2,6 +2,18 @@
 
 import nodemailer from 'nodemailer';
 
+const transporter = nodemailer.createTransport({
+    //@ts-ignore
+    host: process.env.MAIL_HOST,
+    service: process.env.MAIL_SERVICE,
+    port: process.env.MAIL_PORT,
+    secure: true,
+    auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+    },
+});
+
 const sendMail = async ({
     email,
     subject,
@@ -14,18 +26,6 @@ const sendMail = async ({
     html?: string | null;
 }) => {
     try {
-        const transporter = nodemailer.createTransport({
-            //@ts-ignore
-            host: process.env.MAIL_HOST,
-            service: process.env.MAIL_SERVICE,
-            port: process.env.MAIL_PORT,
-            secure: true,
-            auth: {
-                user: process.env.MAIL_USER,
-                pass: process.env.MAIL_PASS,
-            },
-        });
-
         const result = await transporter.sendMail({
             from: `Contact Form ${process.env.USER}>`,
             to: email,

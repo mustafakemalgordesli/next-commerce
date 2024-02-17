@@ -4,7 +4,6 @@ import { z } from 'zod';
 import prisma from '@/lib/prisma';
 import crypto from 'crypto';
 import sendMail from '@/lib/send-mail';
-import { redirect } from 'next/navigation';
 
 const createSchema = z.object({
     email: z
@@ -51,7 +50,7 @@ export async function ForgotPasswordAction(prevState: any, formData: FormData) {
             );
             const diffMin = Math.ceil(timeDiff / (1000 * 60));
 
-            if (diffMin >= 5) {
+            if (diffMin >= 30) {
                 resetToken = await prisma.resetToken.update({
                     where: {
                         id: resetToken.id,
