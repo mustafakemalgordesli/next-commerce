@@ -5,13 +5,28 @@ import { Label } from "@/components/ui/label"
 import { useFormState } from "react-dom"
 import { SubmitButton } from "@/components/submit-button"
 import { ForgotPasswordAction } from "@/actions/auth/forgotpassword"
+import { useEffect } from "react"
 
-const initialState: { email: string } = {
+const initialState: { email: string, error: string, message: string } = {
     email: "",
+    error: '',
+    message: '',
 }
 
 export default function ForgotPasswordForm() {
     const [state, formAction] = useFormState(ForgotPasswordAction, initialState)
+
+    useEffect(() => {
+        if (state.error != "") {
+            alert(state.error)
+        }
+    }, [state.error])
+
+    useEffect(() => {
+        if (state.message != "") {
+            alert(state.message)
+        }
+    }, [state.message])
 
     return <form className="container max-w-lg p-2 sm:p-4 lg:p-8 lg:px-12 border rounded-lg flex flex-col gap-4" action={formAction}>
         <div className="text-xl font-semibold">Reset your password</div>
