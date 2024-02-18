@@ -10,6 +10,7 @@ import { useState } from "react"
 import { useFormState } from "react-dom"
 import { LogInAction } from "@/actions/auth/login"
 import { SubmitButton } from "../submit-button"
+import { signIn } from "next-auth/react"
 
 const initialState: { email: string, password: string } = {
     email: "",
@@ -78,7 +79,7 @@ export default function LoginForm({ next }: { next: string }) {
                 <Button variant="ghost" className="underline hover:bg-transparent p-1">Sign Up</Button>
             </Link>
         </div>
-        <Button className="w-full">
+        <Button type="button" className="w-full" onClick={() => signIn('google')}>
             <GoogleOutlined className="mr-1 h-4 w-4" /> Log in with Google
         </Button>
     </form>

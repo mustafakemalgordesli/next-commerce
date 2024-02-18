@@ -3,14 +3,16 @@ import { Inter as FontSans } from "next/font/google"
 
 import { cn } from "@/lib/utils"
 import Header from "@/components/header";
+import NextAuthProvider from "@/contexts/NextAuthProvider";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
-export default function RootLayout({ children }: Readonly<{
+export default function RootLayout({ children, session }: Readonly<{
   children: React.ReactNode;
+  session: any;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -21,8 +23,11 @@ export default function RootLayout({ children }: Readonly<{
           fontSans.variable
         )}
       >
-        <Header />
-        {children}
+        <NextAuthProvider session={session}>
+          <Header />
+          {children}
+        </NextAuthProvider>
+
       </body>
     </html>
   )
