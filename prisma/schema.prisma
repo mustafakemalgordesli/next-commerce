@@ -26,3 +26,12 @@ model ResetToken {
   token     String   @unique
   createdAt DateTime @default(now())
 }
+
+model Product {
+  id          Int     @id @default(autoincrement())
+  name        String
+  price       Decimal @db.Decimal(9, 2)
+  imageUrl    String
+  quantity    Int
+  description String?
+}
