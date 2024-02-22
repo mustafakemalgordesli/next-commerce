@@ -71,6 +71,15 @@ const LoggedIn = () => {
         <>
             <li className="row-span-3 w-full">
                 <NavigationMenuLink asChild>
+                    <Link href="/account" className="w-full">
+                        <Button className="w-full">
+                            Account
+                        </Button>
+                    </Link>
+                </NavigationMenuLink>
+            </li>
+            <li className="row-span-3 w-full">
+                <NavigationMenuLink asChild>
                     <LogoutButton logoutaction={LogOutAction} />
                 </NavigationMenuLink>
             </li>
